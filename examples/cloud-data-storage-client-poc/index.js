@@ -15,18 +15,15 @@ gcs.interceptors.push({
     return reqOpts;
   },
 });
-
 gcs
   .createBucket('test-bucket')
   .then(async res => {
     try {
       const bucketList = await gcs.getBuckets();
-
       const bucket = await gcs.bucket('test-bucket').get();
-
       // this endpoint doesn't work correctly
       // const uploadRes = await gcs.bucket('test-bucket').upload('./test.txt');
-
+      
       // await gcs.bucket('test-bucket').delete();
     } catch (err) {
       console.log(`${err.message}`);
