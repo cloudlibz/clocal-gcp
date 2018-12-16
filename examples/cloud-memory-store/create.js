@@ -5,7 +5,6 @@ var options = {
   url: 'http://localhost:7070/v1beta1/projects/testProject/locations/us-east-1',
   qs: { instanceId: 'redisTest123' },
   headers: {
-    'Postman-Token': 'f0f5d2f5-ffda-4f7b-9f81-d45aedb3a900',
     'Cache-Control': 'no-cache',
     'Content-Type': 'application/json',
   },
