@@ -20,6 +20,16 @@ class Bucket {
     return `${this.storageLocation}/${bucketName}/${fileName}`;
   }
 
+  updateObject(path, fileName, bucketName) {
+    try {
+      this.deleteObject(bucketName, objectName);
+      return this.uploadObject(path, fileName, bucketName);
+    } catch (err) {
+      console.log(err);
+      return false;
+    }
+  }
+
   uploadObject(path, fileName, bucketName) {
     try {
       const bucketConfig = this._bucketConfigStore.getBucket(bucketName);

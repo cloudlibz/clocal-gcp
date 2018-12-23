@@ -36,7 +36,7 @@ class CloudStorage extends CloudLocal {
 
     const form = new formidable.IncomingForm();
 
-    form.parse(req, function(err, fields, files) {
+    form.parse(req, function (err, fields, files) {
       console.log(Object.values(files)[0].type);
       console.log(Object.values(files)[0].size);
       const tmpPath = Object.values(files)[0].path;
@@ -49,6 +49,15 @@ class CloudStorage extends CloudLocal {
       console.log(objectInstance);
       res.send(objectInstance);
     });
+  }
+
+  _updateObject(req, res) {
+    const bucketName = req.params.bucketName;
+    const path = req.params.path;
+    const fileName = req.params.fileName;
+    const _bucket = new Bucket();
+    const objectInstance = _bucket.updateBucket(path, fileName, bucketName);
+    res.send(objectInstance);
   }
 
   _insertBucket(req, res) {

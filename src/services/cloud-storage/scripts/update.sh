@@ -1,0 +1,1 @@
+node ./scripts/update.js "$1" "$2" "$3"
